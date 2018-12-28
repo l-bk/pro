@@ -1,0 +1,43 @@
+server:
+  prot:
+    8080 #访问端口号
+  servlet:
+    context-path: /pro #访问项目名
+
+spring:
+  devtools:
+    restart:
+      enabled:true #�ȼ���
+  datasource:
+#    type: com.alibaba.druid.pool.DruidDataSource
+    #useSSL=true 当jdbc和mysql的版本不一致，mysql版本高，useSSL=true就可以连接上
+    #zeroDateTimeBehavior=convertToNull timestamp查询出来的空值用null表示
+    url: jdbc:mysql://localhost:3306/pro?useUnicode=ture$characterEncoding=UTF-8&useSSL=true&zeroDateTimeBehavior=convertToNull&serverTimezone=Asia/Shanghai
+    driverClassName: com.mysql.jdbc.Driver
+    username: root
+    password: root
+    #最大最小连接数
+    initiaSize: 5
+    minIdle: 5
+    maxActive: 10
+    #最大等待时间
+    maxWait: 50000
+
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    database: 0
+    password:
+    #连接超时
+    timeout: 0
+
+
+mybatis:
+  # 映射路径
+  mapper-locations: classpath:mapping/*/*.xml
+  # 实体包路径
+  type-aliases-package: com.example.pro

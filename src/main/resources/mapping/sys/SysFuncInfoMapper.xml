@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.pro.sys.dao.SysFuncInfoDao">
+    <resultMap id="resultMap" type="com.example.pro.sys.entity.SysFuncInfo">
+        <id column="func_id" jdbcType="INTEGER" property="funcId"/>
+        <result column="func_name" jdbcType="VARCHAR" property="funcName"/>
+        <result column="func_parent" jdbcType="INTEGER" property="funcParent"/>
+        <result column="func_parent_name" jdbcType="VARCHAR" property="funcParentName"/>
+        <result column="func_type" jdbcType="VARCHAR" property="funcType"/>
+        <result column="func_sort" jdbcType="VARCHAR" property="funcSort"/>
+        <result column="func_url" jdbcType="VARCHAR" property="funcUrl"/>
+        <result column="func_identifying" jdbcType="VARCHAR" property="funcIdentifying"/>
+        <result column="func_logo" jdbcType="VARCHAR" property="funcLogo"/>
+        <result column="menu_location" jdbcType="VARCHAR" property="menuLocation"/>
+        <result column="is_show" jdbcType="VARCHAR" property="isShow"/>
+        <result column="new_page" jdbcType="VARCHAR" property="newPage"/>
+        <result column="func_remark" jdbcType="VARCHAR" property="funcRemark"/>
+        <result column="create_date" jdbcType="TIMESTAMP" property="createDate"/>
+    </resultMap>
+    <sql id="select_params">
+        func_id,func_name,func_parent,func_parent_name,func_type,func_sort,func_url,func_identifying,func_logo,menu_location,is_show,new_page,func_remark,create_date
+    </sql>
+    <select id="getList" resultMap="resultMap" >
+        select
+        <include refid="select_params"/>
+        from sys_func_info
+        order by func_id
+    </select>
+</mapper>

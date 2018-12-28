@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.pro.sys.dao.SysUserInfoDao">
+    <resultMap id="resultMap" type="com.example.pro.sys.entity.SysUserInfo">
+        <id column="user_id" jdbcType="INTEGER" property="userId"/>
+        <result column="user_name" jdbcType="VARCHAR" property="userName"/>
+        <result column="user_code" jdbcType="VARCHAR" property="userCode"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+        <result column="phone" jdbcType="VARCHAR" property="phone"/>
+        <result column="email" jdbcType="VARCHAR" property="email"/>
+        <result column="photo" jdbcType="VARCHAR" property="photo"/>
+        <result column="address" jdbcType="VARCHAR" property="address"/>
+        <result column="create_date" jdbcType="TIMESTAMP" property="createDate"/>
+    </resultMap>
+    <sql id="select_params">
+        user_id,user_name,user_code,password,phone,email,photo,address,create_date
+    </sql>
+</mapper>
